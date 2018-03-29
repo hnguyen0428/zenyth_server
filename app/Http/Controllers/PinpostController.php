@@ -129,9 +129,9 @@ class PinpostController extends Controller
         if ($pin == null)
             Exceptions::notFoundException(sprintf(OBJECT_NOT_FOUND, PINPOST));
 
-        $pin->makeHidden(['comments_count']);
+//        $pin->makeHidden(['comments_count']);
         $pin->addVisible(['comments']);
-
+        $pin->addVisible(['likes']);
 
         return Response::dataResponse(true, [
             'pinpost' => $pin

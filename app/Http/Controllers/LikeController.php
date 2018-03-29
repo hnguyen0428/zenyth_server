@@ -96,6 +96,7 @@ class LikeController extends Controller
         // Validate if like belongs to this user
         $likeOwnerId = $like->user_id;
         $userId = $request->get('user')->id;
+        $type = $this->getLikeableType($request);
 
         if ($userId != $likeOwnerId)
             Exceptions::invalidTokenException(sprintf(NOT_USERS_OBJECT,

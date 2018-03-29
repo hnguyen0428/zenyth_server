@@ -56,7 +56,7 @@ class CommentController extends Controller
         ];
 
         $comment = $this->commentRepo->create($data);
-        $comment->makeHidden(['creator', 'likes_count', 'replies_count']);
+        $comment->makeHidden(['likes_count', 'replies_count']);
 
         return Response::dataResponse(true, ['comment' => $comment]);
 
